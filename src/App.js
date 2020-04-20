@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Nav from './components/Nav/nav';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import Stats from './pages/Stats/stats';
 import News from './pages/News/news';
-import Nav from './components/Nav/nav';
+import './App.css';
 
-export default class App extends React.Component {
+class App extends Component {
 	render() {
 		return (
-			<div className="App">
-				<Nav />
-				<Stats />
-				<News />
-			</div>
+			<BrowserRouter>
+				<div className="App">
+					<Nav />
+					<Switch>
+						<Route exact path="/" />
+						<Route path="/news" component={News} />
+						<Route path="/statistics" component={Stats} />
+					</Switch>
+				</div>
+			</BrowserRouter>
 		);
 	}
 }
+export default App;

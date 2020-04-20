@@ -1,5 +1,5 @@
-import React, { useEffect, useState, Component } from 'react';
-import { fetchNews } from '../../api';
+import React from 'react';
+
 import './news.css';
 
 class News extends React.Component {
@@ -39,7 +39,7 @@ class News extends React.Component {
 			}
 		});
 
-		if (loading == true) {
+		if (loading === true) {
 			return (
 				<div className="preloader-wrapper big active loader">
 					<div className="spinner-layer spinner-blue">
@@ -59,14 +59,14 @@ class News extends React.Component {
 
 		return (
 			<div className="container">
-				<h3 className="center-align">Top News</h3>
+				<h3 className="center-align">...Top News...</h3>
 				<div className="row">
-					{this.state.news.slice(0, 18).map((item, index) => {
+					{news.slice(0, 18).map((item, index) => {
 						return (
 							<div className="col s12 m4" key={index}>
 								<div className="card z-depth-0 post-summary">
 									<div className="card-image">
-										<img className="card-img" src={item.img} />
+										<img className="card-img" src={item.img} alt="News Image" />
 									</div>
 									<div className="card-content grey-text text-darken-3">
 										<p className="content">{item.title}</p>

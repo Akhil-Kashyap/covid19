@@ -7,13 +7,14 @@ import styles from './stats.module.css';
 class Stats extends React.Component {
 	state = {
 		data: {},
-		country: ''
+		country: '',
+		loading: true
 	};
 
 	async componentDidMount() {
 		const data = await fetchData();
 
-		this.setState({ data });
+		this.setState({ data, loading: false });
 	}
 
 	handleCountryChange = async (country) => {
@@ -23,11 +24,28 @@ class Stats extends React.Component {
 	};
 
 	render() {
-		const { data, country } = this.state;
+		const { data, country, loading } = this.state;
+
+		if (loading === true) {
+			return (
+				<div className="preloader-wrapper big active loader">
+					<div className="spinner-layer spinner-blue">
+						<div className="circle-clipper left">
+							<div className="circle" />
+						</div>
+						<div className="gap-patch">
+							<div className="circle" />
+						</div>
+						<div className="circle-clipper right">
+							<div className="circle" />
+						</div>
+					</div>
+				</div>
+			);
+		}
 
 		return (
 			<div className={styles.container}>
-				{/* <img className={styles.image} src={image} alt="COVID-19" /> */}
 				<Cards data={data} />
 				<CountryPicker handleCountryChange={this.handleCountryChange} />
 				<Chart data={data} country={country} />

@@ -1,8 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import './nav.css';
 
-export default class Nav extends React.Component {
+class Nav extends Component {
 	render() {
-		return <h1>Navbar</h1>;
+		return (
+			<header className="header">
+				<a className="logo">COVID-19</a>
+				<input className="menu-btn" type="checkbox" id="menu-btn" />
+				<label className="menu-icon" htmlFor="menu-btn">
+					<span className="navicon" />
+				</label>
+				<ul className="menu">
+					<li>
+						<NavLink exact to="/">
+							Home
+						</NavLink>
+					</li>
+					<li>
+						<NavLink to="/news/">News</NavLink>
+					</li>
+					<li>
+						<NavLink to="/statistics/">Statistics</NavLink>
+					</li>
+				</ul>
+			</header>
+			// <nav classNameNameName="navBar">
+			// 	<ul>
+			// 		<li>
+			// 			<NavLink exact to="/">
+			// 				Home
+			// 			</NavLink>
+			// 		</li>
+			// 		<li>
+			// 			<NavLink to="/news/">News</NavLink>
+			// 		</li>
+			// 		<li>
+			// 			<NavLink to="/statistics/">Statistics</NavLink>
+			// 		</li>
+			// 	</ul>
+			// </nav>
+		);
 	}
 }
+export default Nav;
