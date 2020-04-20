@@ -3,14 +3,16 @@ import { Line, Bar } from 'react-chartjs-2';
 
 import { fetchDailyData } from '../../api';
 
-import styles from './Charts.module.css';
+import styles from './Chart.module.css';
 
-const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
-	const [ dailyData, setDailyData ] = useState([]);
+const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
+	const [ dailyData, setDailyData ] = useState({});
 
 	useEffect(() => {
 		const fetchMyAPI = async () => {
-			setDailyData(await fetchDailyData());
+			const initialDailyData = await fetchDailyData();
+
+			setDailyData(initialDailyData);
 		};
 
 		fetchMyAPI();
@@ -35,7 +37,7 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
 		/>
 	) : null;
 
-	const lineChart = dailyData.length ? (
+	const lineChart = dailyData[0] ? (
 		<Line
 			data={{
 				labels: dailyData.map(({ date }) => date),
@@ -53,7 +55,30 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
 						backgroundColor: 'rgba(255, 0, 0, 0.5)',
 						fill: true
 					}
-				]
+				],
+				options: {
+					scales: {
+						xAxes: [
+							{
+								gridLines: {
+									color: 'rgba(255,255,255)',
+									lineWidth: 1
+								}
+							}
+						],
+						yAxes: [
+							{
+								ticks: {
+									beginAtZero: true
+								},
+								gridLines: {
+									color: 'rgba(255,255,255)',
+									lineWidth: 0.5
+								}
+							}
+						]
+					}
+				}
 			}}
 		/>
 	) : null;
@@ -61,4 +86,4 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
 	return <div className={styles.container}>{country ? barChart : lineChart}</div>;
 };
 
-export default Charts;
+export default Chart;
