@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../loader.css';
 import { Cards, CountryPicker, Chart } from '../../components';
 import { fetchData } from '../../api';
 import styles from './stats.module.css';
@@ -28,17 +28,46 @@ class Stats extends React.Component {
 
 		if (loading === true) {
 			return (
-				<div className="preloader-wrapper big active loader">
-					<div className="spinner-layer spinner-blue">
-						<div className="circle-clipper left">
-							<div className="circle" />
+				<div className="box">
+					<div className="body">
+						<div className="details">
+							<div className="r-detail" />
+							<div className="m-detail" />
+							<div className="mm-detail" />
+							<div className="l-detail" />
 						</div>
-						<div className="gap-patch">
-							<div className="circle" />
+						<div className="shapes">
+							<div className="b-shape" />
+							<div className="t-shape" />
+							<div className="rb-shape" />
+							<div className="tm-shape" />
+							<div className="lm-shape" />
+							<div className="rm-shape" />
+							<div className="bm-shape" />
+							<div className="lt-shape" />
 						</div>
-						<div className="circle-clipper right">
-							<div className="circle" />
+						<div className="sm-details">
+							<div className="r-detail" />
+							<div className="m-detail" />
+							<div className="mm-detail" />
+							<div className="l-detail" />
 						</div>
+						<div className="sm-shapes">
+							<div className="b-shape" />
+							<div className="t-shape" />
+							<div className="rb-shape" />
+							<div className="tm-shape" />
+							<div className="lm-shape" />
+							<div className="rm-shape" />
+							<div className="bm-shape" />
+							<div className="lt-shape" />
+						</div>
+					</div>
+					<div className="centered">
+						<div className="text">COVID-19</div>
+					</div>
+					<div className="message">
+						Please wait... <br />Your life is on hold
 					</div>
 				</div>
 			);

@@ -32,7 +32,31 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 			}}
 			options={{
 				legend: { display: false },
-				title: { display: true, text: `Current state in ${country}` }
+				title: { display: true, text: `Current state in ${country}`, fontColor: 'white', fontSize: 15 },
+				scales: {
+					yAxes: [
+						{
+							gridLines: {
+								color: 'rgb(255,255,255)',
+								lineWidth: 0.3
+							},
+							ticks: {
+								fontColor: 'white' // this here
+							}
+						}
+					],
+					xAxes: [
+						{
+							gridLines: {
+								color: 'rgb(255,255,255)',
+								lineWidth: 0.3
+							},
+							ticks: {
+								fontColor: 'white' // this here
+							}
+						}
+					]
+				}
 			}}
 		/>
 	) : null;
@@ -46,6 +70,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 						data: dailyData.map((data) => data.confirmed),
 						label: 'Infected',
 						borderColor: '#3333ff',
+
 						fill: true
 					},
 					{
@@ -55,28 +80,37 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 						backgroundColor: 'rgba(255, 0, 0, 0.5)',
 						fill: true
 					}
-				],
-				options: {
-					scales: {
-						xAxes: [
-							{
-								gridLines: {
-									color: 'rgba(255,255,255)',
-									lineWidth: 1
-								}
+				]
+			}}
+			options={{
+				scales: {
+					yAxes: [
+						{
+							gridLines: {
+								color: 'rgb(255,255,255)',
+								lineWidth: 0.3
+							},
+							ticks: {
+								fontColor: 'white' // this here
 							}
-						],
-						yAxes: [
-							{
-								ticks: {
-									beginAtZero: true
-								},
-								gridLines: {
-									color: 'rgba(255,255,255)',
-									lineWidth: 0.5
-								}
+						}
+					],
+					xAxes: [
+						{
+							gridLines: {
+								color: 'rgb(255,255,255)',
+								lineWidth: 0.3
+							},
+							ticks: {
+								fontColor: 'white' // this here
 							}
-						]
+						}
+					]
+				},
+				legend: {
+					labels: {
+						fontColor: 'white',
+						fontSize: 15
 					}
 				}
 			}}
