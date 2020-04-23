@@ -1,9 +1,6 @@
 .formControl {
-	width: 30%;
+	width: 30% !important;
 	margin-bottom: 30px !important;
-	color: White !important;
-}
 
-.options {
-	color: white !important;
+	color: White !important;
 }
