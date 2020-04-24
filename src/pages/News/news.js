@@ -33,7 +33,7 @@ class News extends React.Component {
 	render() {
 		const { news, loading } = this.state;
 
-		this.state.news.map((item, index) => {
+		this.state.news.forEach((item, index) => {
 			if (item.img === 'https://raw.githubusercontent.com/theuitown/COROAPIWEB/master/20200328_183732_0000.png') {
 				this.removenews(index);
 			}
@@ -107,25 +107,6 @@ class News extends React.Component {
 									</div>
 								</div>
 							</div>
-
-							// 	<div className="row">
-							// 		<div className="col m4 s12">
-							// 			<div className="card  post-summary center-align">
-							// 				<div className="card-content grey-text text-darken-3 center-align">
-							// 					<div className="card-image">
-							// 						<img src={item.img} />
-							// 						<span className="card-content">{item.title}</span>
-							// 						<div className="card-action">
-							// 							<a href={item.link} rel="noopener noreferrer" target="_blank">
-							// 								Read More
-							// 							</a>
-							// 						</div>
-							// 					</div>
-							// 				</div>
-							// 			</div>
-							// 		</div>
-							// 	</div>
-							// </div>
 						);
 					})}
 				</div>

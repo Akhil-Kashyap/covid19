@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const url = 'https://covid19.mathdro.id/api';
-const newsurl = 'https://cryptic-ravine-96718.herokuapp.com/';
 
 export const fetchData = async (country) => {
 	let changeableUrl = url;
@@ -40,14 +39,5 @@ export const fetchCountries = async () => {
 		return countries.map((country) => country.name);
 	} catch (error) {
 		return error;
-	}
-};
-
-export const fetchNews = async () => {
-	try {
-		const { data } = await axios.get(newsurl);
-		return data;
-	} catch (error) {
-		console.log(error);
 	}
 };

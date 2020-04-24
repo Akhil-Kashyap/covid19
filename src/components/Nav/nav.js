@@ -6,7 +6,9 @@ class Nav extends Component {
 	render() {
 		return (
 			<header className="header">
-				<a className="logo">COVID-19</a>
+				<a href="" rel="noopener noreferrer" className="logo">
+					COVID-19
+				</a>
 				<input className="menu-btn" type="checkbox" id="menu-btn" />
 				<label className="menu-icon" htmlFor="menu-btn">
 					<span className="navicon" />
@@ -25,21 +27,6 @@ class Nav extends Component {
 					</li>
 				</ul>
 			</header>
-			// <nav classNameNameName="navBar">
-			// 	<ul>
-			// 		<li>
-			// 			<NavLink exact to="/">
-			// 				Home
-			// 			</NavLink>
-			// 		</li>
-			// 		<li>
-			// 			<NavLink to="/news/">News</NavLink>
-			// 		</li>
-			// 		<li>
-			// 			<NavLink to="/statistics/">Statistics</NavLink>
-			// 		</li>
-			// 	</ul>
-			// </nav>
 		);
 	}
 }
