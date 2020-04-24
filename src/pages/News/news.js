@@ -2,6 +2,8 @@ import React from 'react';
 import '../loader.css';
 import './news.css';
 
+const url = 'http://newsapi.org/v2/top-headlines?country=in&apiKey=222921ef6aef474c8a1cf2246d24b4a3';
+
 class News extends React.Component {
 	constructor(props) {
 		super(props);
@@ -12,13 +14,13 @@ class News extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch('https://cryptic-ravine-96718.herokuapp.com/')
+		fetch(url)
 			.then((response) => {
 				return response.json();
 			})
 			.then((myJson) => {
 				this.setState({
-					news: myJson.news,
+					news: myJson.articles,
 					loading: false
 				});
 			});
@@ -32,12 +34,6 @@ class News extends React.Component {
 
 	render() {
 		const { news, loading } = this.state;
-
-		this.state.news.forEach((item, index) => {
-			if (item.img === 'https://raw.githubusercontent.com/theuitown/COROAPIWEB/master/20200328_183732_0000.png') {
-				this.removenews(index);
-			}
-		});
 
 		if (loading === true) {
 			return (
@@ -95,13 +91,13 @@ class News extends React.Component {
 							<div className="col s12 m4" key={index}>
 								<div className="card">
 									<div className="card-image">
-										<img className="card-img" src={item.img} alt="NewsImage" />
+										<img className="card-img" src={item.urlToImage} alt="NewsImage" />
 									</div>
 									<div className="card-content grey-text text-darken-3">
 										<p className="content">{item.title}</p>
 									</div>
 									<div className="card-action">
-										<a href={item.link} rel="noopener noreferrer" target="_blank">
+										<a href={item.url} rel="noopener noreferrer" target="_blank">
 											Read More
 										</a>
 									</div>

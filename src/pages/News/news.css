@@ -11,7 +11,7 @@
 }
 
 .card {
-	height: 400px;
+	height: 450px;
 	border-radius: 6px;
 	background-color: hsl(219, 30%, 18%);
 	box-shadow: 2px 2px 20px 2px hsl(216, 53%, 9%);
@@ -22,7 +22,7 @@
 		height: 150px;
 	}
 	.card {
-		height: 325px !important;
+		height: auto !important;
 		margin-bottom: 25px !important;
 	}
 	h3 {
@@ -44,8 +44,12 @@
 }
 h3 {
 	margin-top: 10px;
-	font-size: 4rem;
+
 	font-weight: 600;
+}
+
+.center-align {
+	font-size: 4rem;
 }
 
 .loader {
